@@ -81,5 +81,19 @@
         }
     });
 
+    // Dashboard Sidebar Toggle
+    $(document).on('click', '#sidebar-toggle', function () {
+        $('.sidebar').toggleClass('active');
+        $('.main-wrapper').toggleClass('active');
+    });
+
+    // Close sidebar on wrapper click (mobile)
+    $(document).on('click', '.main-wrapper.active', function (e) {
+        if ($(window).width() < 992) {
+            $('.sidebar').removeClass('active');
+            $('.main-wrapper').removeClass('active');
+        }
+    });
+
 })(jQuery);
 

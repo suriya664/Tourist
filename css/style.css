@@ -259,10 +259,11 @@ h6,
 /* Separate/Floating Navbar Design */
 .navbar-separate {
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 2%;
     right: 2%;
-    width: 96%;
+    width: calc(100% - 40px);
+    max-width: 1200px;
     margin: 0 auto;
     background: var(--navbar-bg) !important;
     backdrop-filter: blur(var(--navbar-blur));
@@ -298,6 +299,11 @@ h6,
     font-size: 24px;
 }
 
+.navbar-brand h1 {
+    font-size: 24px !important;
+    font-weight: 700;
+}
+
 /* Premium Buttons in Navbar */
 .navbar-light .btn-primary {
     background: var(--button-gradient);
@@ -324,7 +330,7 @@ h6,
 
 @media (max-width: 991.98px) {
     .navbar-separate {
-        position: relative;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -341,12 +347,16 @@ h6,
     }
 
     .navbar-light .navbar-collapse {
-        margin-top: 15px;
-        border-top: 1px solid var(--border-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         background: var(--bg-white);
-        padding: 15px;
-        border-radius: 15px;
+        padding: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--border-color);
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -370,7 +380,7 @@ h6,
         content: "";
         width: 0;
         height: 2px;
-        bottom: 20px;
+        bottom: 10px;
         left: 50%;
         background: var(--primary);
         transition: .5s;
@@ -449,7 +459,8 @@ h6,
 }
 
 .service-item:hover {
-    background: var(--primary);
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
 }
 
 .service-item * {
