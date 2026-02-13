@@ -78,7 +78,9 @@ h6,
     color: #FFFFFF !important;
 }
 
-[data-theme="dark"] .navbar-toggler-icon {
+[data-theme="dark"] .navbar-toggler-icon,
+[data-theme="dark"] .navbar-toggler .fa-bars {
+    color: #fff !important;
     filter: invert(1) brightness(200%);
 }
 

@@ -83,15 +83,40 @@
 
     // Dashboard Sidebar Toggle
     $(document).on('click', '#sidebar-toggle', function () {
-        $('.sidebar').toggleClass('active');
-        $('.main-wrapper').toggleClass('active');
+        if ($(window).width() >= 992) {
+            $('.sidebar').toggleClass('active');
+            $('.main-wrapper').toggleClass('active');
+        }
     });
 
-    // Close sidebar on wrapper click (mobile)
-    $(document).on('click', '.main-wrapper.active', function (e) {
-        if ($(window).width() < 992) {
+    // Close sidebar on overlay click (mobile)
+    $(document).on('click', function (e) {
+        if ($(window).width() < 992 && $('.sidebar').hasClass('active')) {
+            // Check if click is outside sidebar and not on toggle button
+            if (!$(e.target).closest('.sidebar').length && !$(e.target).closest('#sidebar-toggle').length) {
+                $('.sidebar').removeClass('active');
+                $('.main-wrapper').removeClass('active');
+                $('body').css('overflow', '');
+            }
+        }
+    });
+
+    // Close sidebar on escape key
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' && $(window).width() < 992 && $('.sidebar').hasClass('active')) {
             $('.sidebar').removeClass('active');
             $('.main-wrapper').removeClass('active');
+            $('body').css('overflow', '');
+        }
+    });
+
+    // Handle window resize
+    $(window).on('resize', function () {
+        if ($(window).width() >= 992) {
+            // Reset mobile styles when switching to desktop
+            $('.sidebar').removeClass('active');
+            $('.main-wrapper').removeClass('active');
+            $('body').css('overflow', '');
         }
     });
 
