@@ -25,6 +25,8 @@
     --light: #14141F;
     --navbar-bg: rgba(14, 21, 37, 0.95);
     --navbar-border: rgba(255, 255, 255, 0.1);
+    --primary: #22c55e; /* Lighter green for better contrast in dark mode */
+    --secondary: #FE8800;
 }
 
 body {
@@ -68,6 +70,11 @@ h6,
     color: #FFFFFF !important;
 }
 
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
+[data-theme="dark"] .navbar-light .navbar-nav .nav-link.active {
+    color: #22c55e !important; /* Use lighter green for hover/active in dark mode */
+}
+
 [data-theme="dark"] .sticky-top.navbar-light {
     background: rgba(14, 21, 37, 0.7) !important;
     backdrop-filter: blur(15px);
@@ -76,6 +83,11 @@ h6,
 
 [data-theme="dark"] .sticky-top.navbar-light .navbar-nav .nav-link {
     color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .sticky-top.navbar-light .navbar-nav .nav-link:hover,
+[data-theme="dark"] .sticky-top.navbar-light .navbar-nav .nav-link.active {
+    color: #22c55e !important; /* Use lighter green for hover/active in dark mode */
 }
 
 [data-theme="dark"] .navbar-toggler-icon,
@@ -253,6 +265,13 @@ h6,
     color: #FFFFFF !important;
 }
 
+[data-theme="dark"] .sticky-top.navbar-light .navbar-nav .nav-link:hover,
+[data-theme="dark"] .sticky-top.navbar-light .navbar-nav .nav-link.active,
+[data-theme="dark"] .navbar-separate .navbar-nav .nav-link:hover,
+[data-theme="dark"] .navbar-separate .navbar-nav .nav-link.active {
+    color: #22c55e !important; /* Use lighter green for hover/active in dark mode */
+}
+
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--primary) !important;
@@ -361,10 +380,24 @@ h6,
         overflow-y: auto;
     }
 
+    [data-theme="dark"] .navbar-light .navbar-collapse {
+        background: var(--bg-light) !important;
+        border-color: var(--border-color) !important;
+    }
+
     .navbar-light .navbar-nav .nav-link {
         padding: 10px 0;
         margin-left: 0;
         color: var(--dark) !important;
+    }
+
+    [data-theme="dark"] .navbar-light .navbar-nav .nav-link {
+        color: var(--heading-color) !important;
+    }
+
+    [data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
+    [data-theme="dark"] .navbar-light .navbar-nav .nav-link.active {
+        color: #22c55e !important; /* Use lighter green for hover/active in dark mode */
     }
 }
 
